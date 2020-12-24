@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homePage">
+
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.example.blindaidkotlin.ui.HomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePage_to_busInfo"
+            app:destination="@id/busInfo" />
+        <action
+            android:id="@+id/action_homePage_to_addContacts"
+            app:destination="@id/addContacts" />
+        <action
+            android:id="@+id/action_homePage_to_sendLocation"
+            app:destination="@id/sendLocation" />
+    </fragment>
+    <fragment
+        android:id="@+id/busInfo"
+        android:name="com.example.blindaidkotlin.ui.BusInfo"
+        android:label="fragment_bus_info"
+        tools:layout="@layout/fragment_bus_info" >
+        <action
+            android:id="@+id/action_busInfo_to_busTracking"
+            app:destination="@id/busTracking" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContacts"
+        android:name="com.example.blindaidkotlin.ui.AddContacts"
+        android:label="fragment_add_contacts"
+        tools:layout="@layout/fragment_add_contacts" />
+    <fragment
+        android:id="@+id/sendLocation"
+        android:name="com.example.blindaidkotlin.ui.SendLocation"
+        android:label="fragment_send_location"
+        tools:layout="@layout/fragment_send_location" />
+    <fragment
+        android:id="@+id/busTracking"
+        android:name="com.example.blindaidkotlin.ui.BusTracking"
+        android:label="fragment_bus_tracking"
+        tools:layout="@layout/fragment_bus_tracking" />
+</navigation>
