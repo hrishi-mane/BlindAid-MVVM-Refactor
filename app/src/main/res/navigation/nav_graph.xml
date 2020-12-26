@@ -15,7 +15,7 @@
             app:destination="@id/busInfo" />
         <action
             android:id="@+id/action_homePage_to_addContacts"
-            app:destination="@id/addContacts" />
+            app:destination="@id/showContacts" />
         <action
             android:id="@+id/action_homePage_to_sendLocation"
             app:destination="@id/sendLocation" />
@@ -24,24 +24,28 @@
         android:id="@+id/busInfo"
         android:name="com.example.blindaidkotlin.ui.BusInfo"
         android:label="fragment_bus_info"
-        tools:layout="@layout/fragment_bus_info" >
-        <action
-            android:id="@+id/action_busInfo_to_busTracking"
-            app:destination="@id/busTracking" />
-    </fragment>
+        tools:layout="@layout/fragment_bus_info" />
     <fragment
-        android:id="@+id/addContacts"
-        android:name="com.example.blindaidkotlin.ui.AddContacts"
+        android:id="@+id/showContacts"
+        android:name="com.example.blindaidkotlin.ui.ShowContacts"
         android:label="fragment_add_contacts"
-        tools:layout="@layout/fragment_add_contacts" />
+        tools:layout="@layout/fragment_show_contacts" >
+        <action
+            android:id="@+id/action_showContacts_to_addContacts"
+            app:destination="@id/addContacts" />
+    </fragment>
     <fragment
         android:id="@+id/sendLocation"
         android:name="com.example.blindaidkotlin.ui.SendLocation"
         android:label="fragment_send_location"
         tools:layout="@layout/fragment_send_location" />
     <fragment
-        android:id="@+id/busTracking"
-        android:name="com.example.blindaidkotlin.ui.BusTracking"
-        android:label="fragment_bus_tracking"
-        tools:layout="@layout/fragment_bus_tracking" />
+        android:id="@+id/addContacts"
+        android:name="com.example.blindaidkotlin.ui.AddContacts"
+        android:label="fragment_add_contacts"
+        tools:layout="@layout/fragment_add_contacts" >
+        <action
+            android:id="@+id/action_addContacts_to_showContacts"
+            app:destination="@id/showContacts" />
+    </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.blindaidkotlin.logic.dao
+package com.example.blindaidkotlin.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
