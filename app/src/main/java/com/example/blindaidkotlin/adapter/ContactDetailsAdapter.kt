@@ -1,21 +1,20 @@
 package com.example.blindaidkotlin.adapter
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.view.ActionMode
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blindaidkotlin.R
 import com.example.blindaidkotlin.data.models.ContactDetails
 import com.example.blindaidkotlin.databinding.ViewHolderContactDetailsBinding
 
 class ContactDetailsAdapter() :
-    RecyclerView.Adapter<ContactDetailsAdapter.ContactDetailsViewHolder>() {
+    RecyclerView.Adapter<ContactDetailsAdapter.ContactDetailsViewHolder>(){
 
     private var contactDetailsList: ArrayList<ContactDetails> = ArrayList()
 
-    fun updateData(contactDetails: ContactDetails) {
-        contactDetailsList.add(contactDetails)
-        notifyDataSetChanged()
+    fun removeAt(position: Int) {
+        contactDetailsList.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     fun setData(contactDetailsList: List<ContactDetails>) {
@@ -51,4 +50,5 @@ class ContactDetailsAdapter() :
 
 
     }
+
 }

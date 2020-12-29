@@ -5,10 +5,10 @@ import com.example.blindaidkotlin.data.models.ContactDetails
 import com.example.blindaidkotlin.dao.ContactDetailsDao
 
 class ContactDetailsRepository(private val contactDetailsDao: ContactDetailsDao) {
-    val contactDetailsList: LiveData<List<ContactDetails>> = contactDetailsDao.readAllData()
+    val contactDetailsList: LiveData<List<ContactDetails>> = contactDetailsDao.readAllContacts()
 
     fun addUser(contactDetails: ContactDetails) {
 
-        contactDetailsDao.addUser(contactDetails)
+        contactDetailsDao.addContact(contactDetails)
     }
 }

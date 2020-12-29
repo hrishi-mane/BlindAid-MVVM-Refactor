@@ -26,21 +26,12 @@ class AddContacts : Fragment(R.layout.fragment_add_contacts) {
     lateinit var phone: EditText
     val TAG: String = "LifeCycleMethods"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG, "onCreate: ")
-        setHasOptionsMenu(true)
-
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        Log.d(TAG, "onActivityCreated: ")
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.d(TAG, "onViewCreated: ")
         super.onViewCreated(view, savedInstanceState)
+
+        setHasOptionsMenu(true)
 
         val addContactsBinding = FragmentAddContactsBinding.bind(view)
 
@@ -61,16 +52,15 @@ class AddContacts : Fragment(R.layout.fragment_add_contacts) {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_save_icon) {
-            insertToDatabase()
 
-            val imm:InputMethodManager = activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view?.windowToken, 0)
+        insertToDatabase()
 
-            activity?.onBackPressed()
-            view?.let { Snackbar.make(it, "Contact Added", Snackbar.LENGTH_SHORT).show() }
+        val inputMethodManager: InputMethodManager =
+            activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
 
-        }
+        activity?.onBackPressed()
+        view?.let { Snackbar.make(it, "Contact Added", Snackbar.LENGTH_SHORT).show() }
         return true
     }
 

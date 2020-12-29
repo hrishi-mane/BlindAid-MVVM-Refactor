@@ -14,9 +14,8 @@ import kotlinx.coroutines.launch
 
 class ContactDetailsViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val contactDetailsRepository: ContactDetailsRepository //contactDetailsRepo
-    val contactDetailsList: LiveData<List<ContactDetails>>//no data
-
+    private val contactDetailsRepository: ContactDetailsRepository
+    val contactDetailsList: LiveData<List<ContactDetails>>
     init {
         val dao: ContactDetailsDao =
             ContactDetailsDatabase.getDatabase(application).contactDetailsDao()
@@ -27,9 +26,10 @@ class ContactDetailsViewModel(application: Application) : AndroidViewModel(appli
     fun addUser(contactDetails: ContactDetails) {
         viewModelScope.launch(Dispatchers.IO) {
             contactDetailsRepository.addUser(contactDetails)
-            // [User{5,a,9208123123}]
+
         }
     }
+
 
 
 }

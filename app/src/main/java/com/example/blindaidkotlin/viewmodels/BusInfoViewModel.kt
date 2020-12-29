@@ -1,4 +1,8 @@
 package com.example.blindaidkotlin.viewmodels
 
-class BusInfoViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+
+class BusInfoViewModel(application: Application): AndroidViewModel(application) {
+
 }
