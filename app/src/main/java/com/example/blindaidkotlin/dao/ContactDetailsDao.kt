@@ -13,6 +13,7 @@ interface ContactDetailsDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addUser(contactDetails: ContactDetails)
 
-    @Query("Select phone from contact_details ")
-    fun readPhone():LiveData<String>
+    @Query("Select * from contact_details")
+    fun readAllData(): LiveData<List<ContactDetails>>
+
 }

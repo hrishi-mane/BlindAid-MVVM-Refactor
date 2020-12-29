@@ -43,9 +43,5 @@
         android:id="@+id/addContacts"
         android:name="com.example.blindaidkotlin.ui.AddContacts"
         android:label="fragment_add_contacts"
-        tools:layout="@layout/fragment_add_contacts" >
-        <action
-            android:id="@+id/action_addContacts_to_showContacts"
-            app:destination="@id/showContacts" />
-    </fragment>
+        tools:layout="@layout/fragment_add_contacts" />
 </navigation>

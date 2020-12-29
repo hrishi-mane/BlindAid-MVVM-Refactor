@@ -8,18 +8,18 @@ import com.example.blindaidkotlin.dao.ContactDetailsDao
 import com.example.blindaidkotlin.data.models.ContactDetails
 
 @Database(entities = [ContactDetails::class], version = 1, exportSchema = false)
-abstract class ContactDetailsDatabase: RoomDatabase() {
+abstract class ContactDetailsDatabase : RoomDatabase() {
     abstract fun contactDetailsDao(): ContactDetailsDao
 
-    companion object{
+    companion object {
         private var INSTANCE: ContactDetailsDatabase? = null
 
-        fun getDatabase(context: Context):ContactDetailsDatabase{
+        fun getDatabase(context: Context): ContactDetailsDatabase {
             val temp_instance = INSTANCE
-            if(temp_instance != null){
+            if (temp_instance != null) {
                 return temp_instance
             }
-            synchronized(this){
+            synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     ContactDetailsDatabase::class.java,

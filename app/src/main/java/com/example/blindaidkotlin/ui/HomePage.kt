@@ -11,7 +11,7 @@ class HomePage : Fragment(R.layout.fragment_home_page) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_add_contacts).setOnClickListener {view:View ->
+        view.findViewById<Button>(R.id.button_add_contacts).setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_homePage_to_addContacts)
         }
 
