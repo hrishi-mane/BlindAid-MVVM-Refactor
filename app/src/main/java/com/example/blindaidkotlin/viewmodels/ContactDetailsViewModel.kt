@@ -16,6 +16,7 @@ class ContactDetailsViewModel(application: Application) : AndroidViewModel(appli
 
     private val contactDetailsRepository: ContactDetailsRepository
     val contactDetailsList: LiveData<List<ContactDetails>>
+
     init {
         val dao: ContactDetailsDao =
             ContactDetailsDatabase.getDatabase(application).contactDetailsDao()
@@ -30,6 +31,12 @@ class ContactDetailsViewModel(application: Application) : AndroidViewModel(appli
         }
     }
 
+    fun deleteContact(contactDetails: ContactDetails) {
+        viewModelScope.launch(Dispatchers.IO) {
+            contactDetailsRepository.deleteContact(contactDetails)
+
+        }
+    }
 
 
 }

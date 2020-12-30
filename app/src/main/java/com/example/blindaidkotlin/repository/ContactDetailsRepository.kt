@@ -8,7 +8,10 @@ class ContactDetailsRepository(private val contactDetailsDao: ContactDetailsDao)
     val contactDetailsList: LiveData<List<ContactDetails>> = contactDetailsDao.readAllContacts()
 
     fun addUser(contactDetails: ContactDetails) {
-
         contactDetailsDao.addContact(contactDetails)
+    }
+
+    fun deleteContact(contactDetails: ContactDetails){
+        contactDetailsDao.deleteContact(contactDetails)
     }
 }

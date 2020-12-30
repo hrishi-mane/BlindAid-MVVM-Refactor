@@ -12,14 +12,14 @@ class ContactDetailsAdapter() :
 
     private var contactDetailsList: ArrayList<ContactDetails> = ArrayList()
 
-    fun removeAt(position: Int) {
-        contactDetailsList.removeAt(position)
-        notifyItemRemoved(position)
-    }
 
-    fun setData(contactDetailsList: List<ContactDetails>) {
+    fun setContact(contactDetailsList: List<ContactDetails>) {
         this.contactDetailsList = contactDetailsList as ArrayList<ContactDetails>
         notifyDataSetChanged()
+    }
+
+    fun getContactAtPosition(position: Int):ContactDetails{
+        return contactDetailsList[position]
     }
 
     override fun onCreateViewHolder(

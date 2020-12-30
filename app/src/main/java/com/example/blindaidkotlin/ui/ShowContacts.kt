@@ -36,10 +36,11 @@ class ShowContacts : Fragment(R.layout.fragment_show_contacts) {
         contactDetailsViewModel.contactDetailsList.observe(
             viewLifecycleOwner,
             { contactDetailsList ->
-                contactDetailsAdapter.setData(contactDetailsList)
+                contactDetailsAdapter.setContact(contactDetailsList)
             })
 
         val addContactsToolBar = binding.toolbarShowContacts
+
         (activity as AppCompatActivity).setSupportActionBar(addContactsToolBar)
         (activity as AppCompatActivity).supportActionBar!!.title = "Contacts"
 
@@ -52,7 +53,7 @@ class ShowContacts : Fragment(R.layout.fragment_show_contacts) {
         val swipeHandler = object : SwipeToDeleteCallBack(context) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val adapter = recyclerContactList.adapter as ContactDetailsAdapter
-                adapter.removeAt(viewHolder.adapterPosition)
+                contactDetailsViewModel.deleteContact(adapter.getContactAtPosition(viewHolder.adapterPosition))
             }
         }
 
