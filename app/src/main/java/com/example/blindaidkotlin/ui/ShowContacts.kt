@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,9 +14,12 @@ import com.example.blindaidkotlin.adapter.ContactDetailsAdapter
 import com.example.blindaidkotlin.databinding.FragmentShowContactsBinding
 import com.example.blindaidkotlin.utils.SwipeToDeleteCallBack
 import com.example.blindaidkotlin.viewmodels.ContactDetailsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShowContacts : Fragment(R.layout.fragment_show_contacts) {
-    lateinit var contactDetailsViewModel: ContactDetailsViewModel
+
+    private val contactDetailsViewModel: ContactDetailsViewModel by viewModels()
     lateinit var binding: FragmentShowContactsBinding
 
 
@@ -29,9 +32,6 @@ class ShowContacts : Fragment(R.layout.fragment_show_contacts) {
 
         val contactDetailsAdapter = ContactDetailsAdapter()
         recyclerContactList.adapter = contactDetailsAdapter
-
-        contactDetailsViewModel =
-            ViewModelProvider(requireActivity()).get(ContactDetailsViewModel::class.java)
 
         contactDetailsViewModel.contactDetailsList.observe(
             viewLifecycleOwner,

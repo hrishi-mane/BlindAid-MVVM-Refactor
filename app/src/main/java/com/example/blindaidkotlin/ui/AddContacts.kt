@@ -11,17 +11,18 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.blindaidkotlin.R
 import com.example.blindaidkotlin.data.models.ContactDetails
 import com.example.blindaidkotlin.databinding.FragmentAddContactsBinding
 import com.example.blindaidkotlin.viewmodels.ContactDetailsViewModel
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class AddContacts : Fragment(R.layout.fragment_add_contacts) {
 
-    lateinit var contactDetailsViewModel: ContactDetailsViewModel
+    private val contactDetailsViewModel: ContactDetailsViewModel by viewModels()
     lateinit var name: EditText
     lateinit var phone: EditText
     val TAG: String = "LifeCycleMethods"
@@ -38,9 +39,6 @@ class AddContacts : Fragment(R.layout.fragment_add_contacts) {
         val toolbar = addContactsBinding.toolbarAddContacts
         name = addContactsBinding.editTextName
         phone = addContactsBinding.editTextNumber
-
-        contactDetailsViewModel =
-            ViewModelProvider(requireActivity()).get(ContactDetailsViewModel::class.java)
 
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         (activity as AppCompatActivity).supportActionBar!!.title = "Add Contact"
