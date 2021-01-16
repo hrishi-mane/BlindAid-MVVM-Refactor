@@ -15,14 +15,14 @@ import androidx.fragment.app.viewModels
 import com.example.blindaidkotlin.R
 import com.example.blindaidkotlin.data.models.ContactDetails
 import com.example.blindaidkotlin.databinding.FragmentAddContactsBinding
-import com.example.blindaidkotlin.viewmodels.ContactDetailsViewModel
+import com.example.blindaidkotlin.viewmodels.AddContactsViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddContacts : Fragment(R.layout.fragment_add_contacts) {
 
-    private val contactDetailsViewModel: ContactDetailsViewModel by viewModels()
+    private val addContactsViewModel: AddContactsViewModel by viewModels()
     lateinit var name: EditText
     lateinit var phone: EditText
     val TAG: String = "LifeCycleMethods"
@@ -65,6 +65,6 @@ class AddContacts : Fragment(R.layout.fragment_add_contacts) {
     private fun insertToDatabase() {
         val name: String = name.text.toString()
         val phone: String = phone.text.toString()
-        contactDetailsViewModel.addUser(ContactDetails(0, name, phone))
+        addContactsViewModel.addContact(ContactDetails(0, name, phone))
     }
 }

@@ -1,4 +1,4 @@
 package com.example.blindaidkotlin.repository
 
-class TransportDetailsRepository {
+class RemoteDataRepository {
 }

@@ -1,7 +1,7 @@
 package com.example.blindaidkotlin.di
 
 import com.example.blindaidkotlin.dao.ContactDetailsDao
-import com.example.blindaidkotlin.repository.ContactDetailsRepository
+import com.example.blindaidkotlin.repository.LocalDataRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun providesContactDetailsRepository(contactDetailsDao: ContactDetailsDao):ContactDetailsRepository{
-        return ContactDetailsRepository(contactDetailsDao)
+    fun providesContactDetailsRepository(contactDetailsDao: ContactDetailsDao):LocalDataRepository{
+        return LocalDataRepository(contactDetailsDao)
     }
 }

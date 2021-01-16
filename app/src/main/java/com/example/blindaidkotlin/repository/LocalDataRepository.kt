@@ -4,19 +4,22 @@ import androidx.lifecycle.LiveData
 import com.example.blindaidkotlin.dao.ContactDetailsDao
 import com.example.blindaidkotlin.data.models.ContactDetails
 
-class ContactDetailsRepository
-
-
+class LocalDataRepository
 constructor(
     private val contactDetailsDao: ContactDetailsDao
 ) {
-    val contactDetailsList: LiveData<List<ContactDetails>> = contactDetailsDao.readAllContacts()
-
-    fun addUser(contactDetails: ContactDetails) {
+    fun getContacts():LiveData<List<ContactDetails>>{
+        return contactDetailsDao.readAllContacts()
+    }
+    suspend fun addContact(contactDetails: ContactDetails) {
         contactDetailsDao.addContact(contactDetails)
     }
 
-    fun deleteContact(contactDetails: ContactDetails) {
+    suspend fun deleteContact(contactDetails: ContactDetails) {
         contactDetailsDao.deleteContact(contactDetails)
+    }
+
+    fun getPhoneNumber(phone_no:String):LiveData<String>{
+        return contactDetailsDao.readPhoneNumber(phone_no)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.blindaidkotlin.utils
+package com.example.blindaidkotlin.ui.callbacks
 
 import android.content.Context
 import android.graphics.Canvas
