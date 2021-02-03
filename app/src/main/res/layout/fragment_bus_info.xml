@@ -3,42 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     tools:context=".ui.BusInfo">
 
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="290dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="SOURCE"
-        android:inputType="textPersonName"
-        android:paddingLeft="5dp"
-        android:layout_marginTop="20dp"
-        />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="290dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="DESTINATION"
-        android:inputType="textPersonName"
-        android:paddingLeft="5dp"
-        android:layout_marginTop="20dp"/>
-
-
-    <TextView
-        android:id="@+id/button"
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TAP THE SCREEN"
+        android:layout_height="match_parent"
+        android:background="?android:attr/panelBackground"
         android:textColor="@color/black"
+        android:text="TAP THE SCREEN"
         android:textSize="24sp"
-        android:gravity="center"
-        android:layout_marginTop="200dp"
-        />
+        android:textStyle="bold"
+    />
 
 </LinearLayout>

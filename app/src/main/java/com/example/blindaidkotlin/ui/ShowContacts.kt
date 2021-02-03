@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ShowContacts : Fragment(R.layout.fragment_show_contacts) {
 
     private val showContactsViewModel: ShowContactsViewModel by viewModels()
-    lateinit var binding: FragmentShowContactsBinding
+    private lateinit var binding: FragmentShowContactsBinding
     val contactDetailsAdapter = ContactDetailsAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,6 +52,12 @@ class ShowContacts : Fragment(R.layout.fragment_show_contacts) {
                 showContactsViewModel.deleteContact(adapter.getContactAtPosition(viewHolder.adapterPosition))
             }
         }
+
+        //class ShowContacts() : SwipeToDeleteCallback(context) {
+                //overide fun onSwiped(){
+        // }
+        // }
+
 
         val itemTouchHelper = ItemTouchHelper(swipeHandler)
         itemTouchHelper.attachToRecyclerView(recyclerContactList)

@@ -11,6 +11,11 @@ constructor(
     fun getContacts():LiveData<List<ContactDetails>>{
         return contactDetailsDao.readAllContacts()
     }
+
+    fun getPhoneNumber(name:String): String {
+        return contactDetailsDao.readPhoneNumber(name)
+    }
+
     suspend fun addContact(contactDetails: ContactDetails) {
         contactDetailsDao.addContact(contactDetails)
     }
@@ -19,7 +24,5 @@ constructor(
         contactDetailsDao.deleteContact(contactDetails)
     }
 
-    fun getPhoneNumber(phone_no:String):LiveData<String>{
-        return contactDetailsDao.readPhoneNumber(phone_no)
-    }
+
 }

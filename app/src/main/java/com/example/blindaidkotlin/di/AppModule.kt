@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.blindaidkotlin.dao.ContactDetailsDao
 import com.example.blindaidkotlin.data.ContactDetailsDatabase
+import com.example.blindaidkotlin.repository.LocalDataRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +14,7 @@ import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
 @Module
-object RoomModule {
+object AppModule {
 
     @Singleton
     @Provides
@@ -31,5 +32,13 @@ object RoomModule {
     @Provides
     fun provideDao(contactDetailsDatabase: ContactDetailsDatabase):ContactDetailsDao{
         return contactDetailsDatabase.contactDetailsDao()
+    }
+
+
+
+    @Singleton
+    @Provides
+    fun providesContactDetailsRepository(contactDetailsDao: ContactDetailsDao): LocalDataRepository {
+        return LocalDataRepository(contactDetailsDao)
     }
 }

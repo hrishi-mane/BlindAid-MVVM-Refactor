@@ -17,7 +17,7 @@ interface ContactDetailsDao {
     @Delete
     suspend fun deleteContact(contactDetails: ContactDetails)
 
-    @Query("Select phone from contact_details where phone = :phone_no")
-    fun readPhoneNumber(phone_no: String): LiveData<String>
+    @Query("Select phone from contact_details where name = :name")
+    fun readPhoneNumber(name: String): String
 
 }

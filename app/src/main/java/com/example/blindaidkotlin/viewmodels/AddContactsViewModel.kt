@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class AddContactsViewModel
-
 @ViewModelInject
 constructor(
     private val localDataRepository: LocalDataRepository
@@ -20,6 +19,4 @@ constructor(
             localDataRepository.addContact(contactDetails)
         }
     }
-
-
 }
