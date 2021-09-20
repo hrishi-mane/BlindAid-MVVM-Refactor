@@ -1,6 +1,6 @@
 ## Project Descriptions
 - To know about the project please checkout the Blind Aid Repository here: https://github.com/hrishi-mane/BlindAid
-- This project aims to refactor the Blind Aid project with an aim to making it more stable and to implement all the current best practices followed in android development
+- This project is a refactored version of the Blind Aid project with an aim of making it more stable and to implement all the current best practices followed in android development
 - The project is completly rewritten in kotlin from Java
 
 ## Main Features
