@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(Manifest.permission.SEND_SMS), 1
-            );
+            )
         }
     }
 
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             1 -> {
                 if (ContextCompat.checkSelfPermission(
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     ActivityCompat.requestPermissions(
                         this,
                         arrayOf(Manifest.permission.RECORD_AUDIO), 2
-                    );
+                    )
                 }
             }
         }

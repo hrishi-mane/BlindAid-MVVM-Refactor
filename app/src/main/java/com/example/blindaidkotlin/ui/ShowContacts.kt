@@ -53,15 +53,8 @@ class ShowContacts : Fragment(R.layout.fragment_show_contacts) {
             }
         }
 
-        //class ShowContacts() : SwipeToDeleteCallback(context) {
-                //overide fun onSwiped(){
-        // }
-        // }
-
-
         val itemTouchHelper = ItemTouchHelper(swipeHandler)
         itemTouchHelper.attachToRecyclerView(recyclerContactList)
-
     }
 
     private fun setUpConsumer() {

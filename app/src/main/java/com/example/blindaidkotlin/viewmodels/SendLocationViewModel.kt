@@ -6,18 +6,20 @@ import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.telephony.SmsManager
 import android.util.Log
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.blindaidkotlin.repository.LocalDataRepository
 import com.example.blindaidkotlin.ui.callbacks.RecognitionListener
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
+@HiltViewModel
 class SendLocationViewModel
-@ViewModelInject
+@Inject
 constructor(
     private val speechRecognizer: SpeechRecognizer,
     private val recognizerIntent: Intent,
@@ -31,11 +33,10 @@ constructor(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val phoneNo : String ?  = localDataRepository.getPhoneNumber(name)
-                if (phoneNo != null){
+                if (phoneNo != null) {
                     smsManager.sendTextMessage("+91$phoneNo", null, "Hello", null, null)
                     sendStatus.postValue(2)
-                }
-                else{
+                } else {
                     sendStatus.postValue(1)
                 }
 

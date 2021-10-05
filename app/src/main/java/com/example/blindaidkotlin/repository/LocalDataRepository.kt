@@ -23,6 +23,4 @@ constructor(
     suspend fun deleteContact(contactDetails: ContactDetails) {
         contactDetailsDao.deleteContact(contactDetails)
     }
-
-
 }

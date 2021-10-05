@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.blindaidkotlin.data.models.ContactDetails
 
-
 @Dao
 interface ContactDetailsDao {
-
     @Query("Select * from contact_details")
     fun readAllContacts(): LiveData<List<ContactDetails>>
 
@@ -19,5 +17,4 @@ interface ContactDetailsDao {
 
     @Query("Select phone from contact_details where name = :name")
     fun readPhoneNumber(name: String): String
-
 }

@@ -3,7 +3,7 @@ package com.example.blindaidkotlin.ui.callbacks
 import android.os.Bundle
 import android.speech.RecognitionListener
 
-abstract class RecognitionListener: RecognitionListener{
+abstract class RecognitionListener : RecognitionListener {
 
     override fun onReadyForSpeech(params: Bundle?) {
     }

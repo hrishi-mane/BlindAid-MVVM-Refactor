@@ -9,7 +9,7 @@
         android:id="@+id/homePage"
         android:name="com.example.blindaidkotlin.ui.HomePage"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" >
+        tools:layout="@layout/fragment_home_page">
         <action
             android:id="@+id/action_homePage_to_busInfo"
             app:destination="@id/busInfo" />

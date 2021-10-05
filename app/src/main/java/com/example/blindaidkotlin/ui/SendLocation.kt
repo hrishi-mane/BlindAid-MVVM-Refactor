@@ -20,9 +20,10 @@ class SendLocation : Fragment(R.layout.fragment_send_location) {
         val fragmentSendLocationBinding = FragmentSendLocationBinding.bind(view)
         val sendLocationButton = fragmentSendLocationBinding.sendLocationButton
 
-        sendLocationButton.setOnClickListener{
+        sendLocationButton.setOnClickListener {
             sendLocationViewModel.startListening()
         }
+
 
         setUpResultObserver()
     }
